@@ -1,0 +1,28 @@
+{% macro Billboard(params) %}
+  <div class="rvt-billboard{% if params.reverse %} rvt-billboard--reverse{% endif %}">
+    {% if params.image %}
+      <div class="rvt-billboard__image">
+        <img src="{{ params.image | url }}" alt="{{ alt }}">
+      </div>
+    {% endif %}
+    <div class="rvt-billboard__body">
+      {% if params.title %}
+        {% set headingLevel = "h2" %}
+        {% if params.headingLevel %}
+          {% set headingLevel = params.headingLevel %}
+        {% endif %}
+        <{{ headingLevel }} class="rvt-billboard__title">{{ params.title }}</{{ headingLevel }}>
+      {% endif %}
+      {% if params.content or params.actions %}
+        <div class="rvt-billboard__content [ rvt-flow ]">
+          {{ params.content | safe }}
+          {% if params.actions %}
+            {% for action in params.actions %}
+              <a class="rvt-cta" href="{{ action.link }}">{{ action.text }}</a>
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}

@@ -1,0 +1,13 @@
+{% macro Quote(params) %}
+<div class="rvt-quote">
+    <blockquote class="rvt-quote__text">
+        <p>{{ params.quote }}</p>
+    </blockquote>
+    {% if params.author %}
+        <p class="rvt-quote__citation">
+            <span class="rvt-quote__title">{{ params.author }}</span>
+            <span class="rvt-quote__subtitle">{{ params.title }}</span>
+        </p>
+    {% endif %}
+</div>
+{% endmacro %}

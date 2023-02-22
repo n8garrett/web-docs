@@ -1,0 +1,46 @@
+---
+pagination:
+  data: topics
+  size: 1
+  alias: topic
+layout: layouts/base.njk
+permalink: "topics/{{ topic.slug }}/"
+eleventyComputed:
+  title: "{{ topic.name }}"
+---
+<main id="main-content" class="rvt-flex rvt-flex-column rvt-grow-1">
+  <div class="rvt-layout__wrapper">
+
+    <div class="rvt-container-lg rvt-p-top-lg">
+
+
+      <div class="rvt-row rvt-row--loose rvt-p-top-xxl rvt-p-bottom-3-xl">
+        {% for resource in collections.resources %}
+          {% if resource.data.topic == topic.name %}
+
+            <!-- Resource card -->
+
+            <div class="rvt-flex rvt-cols-4-md rvt-p-lr-md rvt-m-bottom-xl">
+              <div class="rvt-card rvt-card--raised rvt-card--clickable">
+                <div class="rvt-card__body">
+
+                  <!-- Resource title and URL -->
+
+                  <h2 class="rvt-card__title">
+                    <a href="{{ resource.url }}">{{ resource.data.title }}</a>
+                  </h2>
+
+                  <!-- Resource description -->
+
+                  <div class="rvt-card__content [ rvt-flow ]">
+                    <p>{{ resource.data.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>

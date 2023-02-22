@@ -1,0 +1,39 @@
+{% macro Card(params) %}
+  <div class="rvt-card {% if params.card_classes %}{{ params.card_classes }}{% endif %}">
+    {% if params.img %}
+      <div class="rvt-card__image">
+        <img src="{{ params.img | url }}" alt="{{ params.alt }}">
+      </div>
+    {% endif %}
+    <div class="rvt-card__body">
+      {% if params.eyebrow %}
+        <div class="rvt-card__eyebrow">{{ params.eyebrow }}</div>
+      {% endif %}
+      <h3 class="rvt-card__title">
+        {% if params.url %}
+          <a href="{{ params.url }}">{{ params.title }}</a>
+        {% else %}
+          {{ params.title }}
+        {% endif %}
+      </h3>
+      {% if params.description %}
+        <div class="rvt-card__content [ rvt-flow ]">
+          <p>{{ params.description }}</p>
+        </div>
+      {% endif %}
+
+      {% if params.meta %}
+        <div class="rvt-card__meta">
+            {{ params.meta | safe }}
+        </div>
+      {% endif %}
+    </div>
+    {% if CTA %}
+      <div class="rvt-card__button-container">
+        <div class="rvt-card__button">
+          <a href="{{ params.CTALink }}" class="rvt-button rvt-button--crimson">{{ params.CTA }}</a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}

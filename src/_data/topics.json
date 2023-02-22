@@ -1,0 +1,22 @@
+[
+    {
+      "name": "Content Management",
+      "slug": "content-management",
+      "description": "Make your websites and applications usable by anyone regardless of ability"
+    },
+    {
+      "name": "Development Guidelines",
+      "slug": "development",
+      "description": "Manage access to your websites and applications and verify user permissions"
+    },
+    {
+      "name": "Forms",
+      "slug": "forms",
+      "description": "Create event calendars and embed them into your websites"
+    },
+    {
+      "name": "SEO & Analytics",
+      "slug": "seo-analytics",
+      "description": "Analyze your application's data and create interactive dashboards"
+    }
+  ]

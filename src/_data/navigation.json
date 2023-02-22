@@ -1,0 +1,28 @@
+[
+    { 
+      "title": "Properties & Channels",
+      "subnav":   [
+        { "title": "Web Properties", "url": "#" },
+        { "title": "Social Media Channels", "url": "#" },
+        { "title": "Listservs", "url": "#" }
+      ]
+    },
+    {
+      "title": "Content Management",
+      "url": "/topics/content-management/"
+    },
+    {
+      "title": "Development",
+      "url": "/topics/development/"
+    }
+    ,
+    {
+      "title": "Forms",
+      "url": "/topics/forms/"
+    }
+    ,
+    {
+      "title": "SEO & Analytics",
+      "url": "/topics/seo-analytics/"
+    }
+]

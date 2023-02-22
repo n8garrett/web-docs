@@ -1,0 +1,51 @@
+<div id="offCanvas" class="hide-for-large" role="navigation" aria-label="Mobile">
+    <button class="menu-toggle button hide-for-large" data-toggle="iu-menu">Menu</button>
+    <div id="iu-menu" class="off-canvas position-right off-canvas-items" data-off-canvas="" data-position="right">
+        <div class="mobile off-canvas-list" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+            <ul>
+                {% for nav in navigation %}         
+                    {% if nav.subnav %}
+                        <li class="has-children">
+                            <a href="{{ site.base_url}}{{ nav.link }}">{{ nav.title }}</a>
+                            <ul class="children">
+                                {% for subnav in nav.subnav %}
+                                    <li><a href="{{ site.base_url}}{{ subnav.link }}">{{ subnav.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ site.base_url}}{{ nav.link }}" {% if page.url == nav.link %} aria-current="true" class="current" {% endif %}>{{ nav.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="site-header" itemscope="itemscope" itemtype="http://schema.org/CollegeOrUniversity">
+    <div class="row pad">
+        <h1><a class="title" href="{{ site.base_url }}" rel="home"><span class="show-for-sr">iDEW: Informatics Diversity-Enhanced Workforce</span></a></h1>
+    </div>
+</div>
+
+<nav id="nav-main" class="main show-for-large dropdown">
+    <ul class="row pad">
+        <li class="show-on-sticky home"><a href="{{ site.base_url }}" aria-current="page" class="current">Home</a></li>
+        {% for nav in navigation %}
+            {% set currentSection = nav.link %}
+            <li>
+                {% if nav.subnav %}
+                    <a href="{{ site.base_url}}{{ nav.link }}" {% if page.url == nav.link and currentSection in nav.link %} aria-current="true" class="current" {% endif %}>{{ nav.title }}</a>
+                    <ul class="children">
+                        {% for subnav in nav.subnav %}
+                            <li><a href="{{ site.base_url}}{{ subnav.link }}">{{ subnav.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <a href="{{ site.base_url}}{{ nav.link }}" {% if page.url == nav.link %} aria-current="true" class="current" {% endif %}>{{ nav.title }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

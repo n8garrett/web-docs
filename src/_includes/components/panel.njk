@@ -1,0 +1,11 @@
+{% macro interactive_panel(title, url, text = NULL) %}
+<div class="panel--interactive">
+    <a href="{{ url }}">
+    <h2 class="title">{{ title }}</h2>
+    
+    {% if text != NULL %}
+        <p>{{ text }}</p>
+    {% endif %}
+    </a>
+</div>
+{% endmacro %}

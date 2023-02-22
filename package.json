@@ -1,0 +1,21 @@
+{
+  "name": "web-docs",
+  "version": "1.0.0",
+  "description": "Documentation for the Luddy Indy Web Team",
+  "main": "index.js",
+  "scripts": {
+    "build": "set ELEVENTY_ENV=prod&& npm-run-all -s clean eleventy",
+    "stage": "npm-run-all -s clean eleventy",
+    "clean": "npx rimraf _site",
+    "eleventy": "npx @11ty/eleventy",
+    "eleventy:serve": "npx @11ty/eleventy --serve",
+    "start": "npm-run-all -p build eleventy:serve"
+  },
+  "author": "Nate Garrett",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "2.0.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^4.1.2"
+  }
+}

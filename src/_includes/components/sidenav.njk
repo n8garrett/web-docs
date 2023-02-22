@@ -1,0 +1,20 @@
+{% macro Sidenav(params) %}
+  <nav class="rvt-sidenav" aria-labelledby="sidenav-label" data-rvt-sidenav>
+    {% set uniqueID = params.uniqueID %}
+    {% set parent = '/' + params.parent + '/' %}
+    {% set navigation = "" %}
+    {% for item in params.navigation %}
+      {% if item.url === parent %}
+        {% set navigation = item.subnav %}
+        <span class="rvt-sidenav__label" id="sidenav-label">Pages in this Section</span>
+        <ul class="rvt-sidenav__list">
+          {% for nav in navigation %}
+            <li class="rvt-sidenav__item">
+                <a href="{{ nav.url }}" class="rvt-sidenav__link"{% if nav.url === params.path %} aria-current="page"{% endif %}>{{ nav.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endmacro %}

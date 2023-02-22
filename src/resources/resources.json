@@ -1,0 +1,5 @@
+{
+    "layout": "layouts/two-column.njk",
+    "tags": ["resources"],
+    "permalink": "/resource/{{ page.fileSlug }}/"
+}

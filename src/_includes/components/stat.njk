@@ -1,0 +1,15 @@
+{% macro Stat(params) %}
+<div class="rvt-stat">
+    <div class="rvt-stat__content [ rvt-flow ]">
+        {% if params.image %}
+            <div class="rvt-stat__image">
+                <div class="rvt-avatar">
+                    <img class="rvt-avatar__image" src="{{ params.image | url }}">
+                </div>
+            </div>
+        {% endif %}
+        <div class="rvt-stat__number">{{ params.number }}</div>
+        <div class="rvt-stat__description">{{ params.text }}</div>
+    </div>
+</div>
+{% endmacro %}
